@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head> 
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 
     <link rel="stylesheet" href="style.css">
-  
 </head>
 
 <body>
@@ -14,9 +14,10 @@
 <label>Background Color</label>
 
 <select id="bgColor">
-    <option value="yellow">Yellow</option>
-    <option value="blue">Blue</option>
-    <option value="green">Green</option>
+    <option value="white">White</option>
+    <option value="pink">pink</option>
+    <option value="dacklateblue">dacklateblue</option>
+    <option value="gray">Gray</option>
 </select>
 
 <br><br>
@@ -29,34 +30,34 @@
 
 <br><br>
 
-<input type="text" id="display" readonly>
+<input type="text" id="display" placeholder="Answer" readonly>
 
 <br><br>
 
 <div class="calculator">
 
-<button>+</button>
-<button>-</button>
-<button>×</button>
-<button>÷</button>
+    <button data-op="+">+</button>
+    <button data-op="-">-</button>
+    <button data-op="*">×</button>
+    <button data-op="/">÷</button>
 
-<button>7</button>
-<button>8</button>
-<button>9</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
 
-<button>4</button>
-<button>5</button>
-<button>6</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
 
-<button>1</button>
-<button>2</button>
-<button>3</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
 
-<button>0</button>
-<button>.</button>
-<button>C</button>
+    <button>0</button>
+    <button>.</button>
+    <button id="clear">C</button>
 
-<button class="equal">=</button>
+    <button class="equal">=</button>
 
 </div>
 
