@@ -1,0 +1,44 @@
+body{
+    font-family: Arial;
+    padding:20px;
+}
+
+#display{
+    width:250px;
+    height:40px;
+    font-size:20px;
+}
+
+.calculator{
+
+display:grid;
+
+grid-template-columns:repeat(4,60px);
+
+gap:10px;
+
+width:270px;
+
+}
+
+button{
+
+height:50px;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+
+.equal{
+
+grid-column:4;
+
+grid-row:2/6;
+
+background:gray;
+
+color:white;
+
+}
