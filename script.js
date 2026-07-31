@@ -1,74 +1,65 @@
-// Background Color
 const bgColor = document.getElementById("bgColor");
 
 bgColor.addEventListener("change", function () {
     document.body.style.backgroundColor = bgColor.value;
 });
 
-// Calculator
-let operation = "";
+// Display
+const display = document.getElementById("display");
 
-document.querySelectorAll("[data-op]").forEach(function (button) {
+// Get all buttons
+const buttons = document.querySelectorAll(".calculator button");
+
+// Store expression
+let expression = "";
+
+// Loop through buttons
+buttons.forEach(function (button) {
 
     button.addEventListener("click", function () {
-        operation = button.dataset.op;
-    });
 
-});
+        const value = button.innerText;
 
-// Equal Button
-document.querySelector(".equal").addEventListener("click", function () {
+        // Equal
+        if (value === "=") {
 
-    const num1 = parseFloat(document.getElementById("num1").value);
-    const num2 = parseFloat(document.getElementById("num2").value);
-    const display = document.getElementById("display");
+            try {
 
-    if (isNaN(num1) || isNaN(num2)) {
-        alert("Please enter both numbers.");
-        return;
-    }
+                expression = expression.replace(/×/g, "*");
+                expression = expression.replace(/÷/g, "/");
 
-    let answer;
+                display.value = eval(expression);
 
-    switch (operation) {
+                expression = display.value;
 
-        case "+":
-            answer = num1 + num2;
-            break;
+            } catch {
 
-        case "-":
-            answer = num1 - num2;
-            break;
+                display.value = "Error";
+                expression = "";
 
-        case "*":
-            answer = num1 * num2;
-            break;
-
-        case "/":
-
-            if (num2 === 0) {
-                alert("Cannot divide by zero.");
-                return;
             }
 
-            answer = num1 / num2;
-            break;
-
-        default:
-            alert("Please select an operation.");
             return;
-    }
+        }
 
-    display.value = answer;
+        // Clear
+        if (value === "C") {
 
-});
+            expression = "";
+            display.value = "";
+            return;
 
-// Clear Button
-document.getElementById("clear").addEventListener("click", function () {
+        }
 
-    document.getElementById("num1").value = "";
-    document.getElementById("num2").value = "";
-    document.getElementById("display").value = "";
-    operation = "";
+        // Ignore empty button
+        if (button.classList.contains("equal"))
+            return;
+
+        // Add pressed button to expression
+        expression += value;
+
+        display.value = expression;
+
+    });
 
 });
